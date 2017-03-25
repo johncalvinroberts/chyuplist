@@ -58,5 +58,163 @@
 }
 .task-button:hover{
   color: $brand-color;
+}
+
+.task-status{
+  margin:0px;
+}
+
+.tabs {
+  background: #53443F;
+  display: flex;
+}
+.tabs a {
+  color: white;
+}
+.tabs a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.8;
+}
+.tab {
+  background: $gray;
+  flex: 0 0 33.3%;
+  text-align: center;
+  padding: 20px 0;
+  opacity: 0.6;
+}
+.tab.active {
+  opacity: 1;
+}
+
+.booking-image {
+  width: auto;
+}
+
+.profile-details {
+  margin-bottom: 50px;
+}
+
+.container-cards {
 
 }
+
+.wrapper.dashboard {
+  margin-top:40px;
+}
+
+.container-profile {
+  text-align: center;
+  padding: 50px;
+  background: white;
+  border-radius:7px;
+  margin-right: 20px;
+}
+
+.container-profile img {
+  width:100px;
+  border-radius:50%;
+}
+
+.card-link a {
+  z-index: 98;
+}
+.dash_card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+.dash_card-image {
+}
+.dash_card-category {
+  text-align: left;
+  width: 80%;
+  padding-left: 20px;
+  h4 {
+    margin-top: 0px;
+    font-weight: bold;
+  }
+}
+.dash_card-buttons {
+  flex: 1 1 100px;
+  a {
+    font-size:35px;
+    padding:5px;
+    color: grey;
+    &:hover {
+      color:red;
+    }
+  }
+
+}
+.card .icon {
+  color: white;
+  color: black;
+  :hover {
+    color: red;
+  }
+}
+.delete {
+  bottom: 20px;
+  left: 20px;
+}
+
+.edit {
+  bottom: 20px;
+  right: 20px;
+}
+
+.bookings li{
+  margin-top: 20px;
+}
+.btn-mugatu {
+  border-radius: 50px;
+  color: grey;
+  border-color: grey;
+  background-color: red;
+  padding: 12px 27px;
+  text-decoration: none;
+  & :hover {
+    text-decoration: none;
+  }
+}
+
+.btn-yours {
+  color: $gray;
+  font-weight: lighter;
+  border: 1px solid $gray;
+  padding: 15px 35px;
+  border-radius: 50px;
+  opacity: 0.8;
+  &:hover {
+  opacity: 1;
+  }
+}
+
+.btn-small {
+  background: #6AD58B;
+  color: white;
+  opacity: 0.8;
+  font-weight: bold;
+  padding: 10px 10px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  margin-top:55px;
+  font-family:300;
+}
+
+.btn-one-sm {
+  padding: 7px 20px;
+  font-size: 13px;
+  line-height: 1.5;
+  border-radius: 50px;
+  background: #FD7265;
+  color: white;
+  opacity: 0.6;
+  transition: background 0.3s ease;
+  margin-top:10px;
+  border: 1px solid #FD7265;
+  display: inline-block;
+}
+

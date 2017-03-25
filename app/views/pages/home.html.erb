@@ -7,8 +7,15 @@
     <p>Today is <%= today.strftime("%A, %B %m, %Y") %></p>
     <p>Here are your tasks.</p>
   </div>
-  <div class="tasks">
-    <% current_user.tasks.each do |task| %>
+   <div class="tabs">
+    <!-- THREE TABS -->
+    <a class="tab active" data-target="#live-tasks">Live Tasks</a>
+    <a class="tab" data-target="#completed">Completed Tasks</a>
+    <a class="tab" data-target="#projects">Projects</a>
+  </div>
+  <div class="tab-content" id="live-tasks">
+    <% tasks_chronological = current_user.tasks.sort_by { |i| i.duedate } %>
+    <% tasks_chronological.each do |task| %>
     <div class="task">
       <div class="task-item">
           <h3 class="task-heading"><%= task.name %></h3>
@@ -16,12 +23,16 @@
       <p>Due on: <%= task.duedate.strftime("%A, %B %m, %Y") %> at <%= task.duedate.strftime("%H:%M:%S") %></p>
       <p>Time remaining: <%= distance_of_time_in_words(Time.now, task.duedate) %> </p>
       <p><%= task.content %></p>
-      <%= link_to "", task_path(task), class: "task-link"%>
+      <%= link_to "", class: "task-link"%>
       <div class="controls">
         <div class="controls-item">
-          <%= simple_form_for task do |f| %>
-          <%= f.input :done, input_html: {value: 'true'}, as: :hidden%>
-          <%= f.submit "mark as done", method: :patch, class: "task-button" %>
+          <% if task.done == true %>
+            <p class="task-status">Task completed &#128077 </p>
+          <% else %>
+            <%= simple_form_for task do |f| %>
+            <%= f.input :done, input_html: {value: 'true'}, as: :hidden%>
+            <%= f.submit "mark as done", method: :patch, class: "task-button", remote: true %>
+            <% end %>
           <% end %>
         </div>
         <div class="controls-item"><%= link_to "edit", edit_task_path(task) %></div>
@@ -29,6 +40,13 @@
       </div>
     </div>
     <% end %>
+  </div>
+  <div class="tab-content hidden" id="completed">
+   <p>nothing here yet</p>
+
+  </div>
+    <div class="tab-content hidden" id="projects">
+    <p>nothing here</p>
   </div>
   <% else %>
   <div class="text-center">

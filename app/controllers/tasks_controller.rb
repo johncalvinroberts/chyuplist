@@ -32,9 +32,18 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task.destroy
+    if @task.destroy
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: "task deleted" }
+        format.js
+      end
+    else
+      respond to do |format|
+        format.html { redirect_to root_path, notice: "failed" }
+        format.js
+      end
+    end
 
-    redirect_to root_path, notice: "task deleted"
   end
 
   private
