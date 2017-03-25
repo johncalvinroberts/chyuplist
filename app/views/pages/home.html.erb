@@ -11,17 +11,22 @@
     <% current_user.tasks.each do |task| %>
     <div class="task">
       <div class="task-item">
-      <ul class="task-heading-list">
-        <li><h3 class="task-heading"><%= task.name %></h3></li>
-        <li><%= link_to "<i class='fa fa-trash-o' aria-hidden='true'></i>".html_safe, task_path(task), method: :delete, class:"icon-delete" %></li>
-        <li><%= link_to "<i class='fa fa-pencil-square-o' aria-hidden='true'></i>".html_safe, task_path(task), method: :delete, class:"icon-edit" %></li>
-        <li><button><%= task.done %></button></li>
-      </ul>
+          <h3 class="task-heading"><%= task.name %></h3>
       </div>
       <p>Due on: <%= task.duedate.strftime("%A, %B %m, %Y") %> at <%= task.duedate.strftime("%H:%M:%S") %></p>
       <p>Time remaining: <%= distance_of_time_in_words(Time.now, task.duedate) %> </p>
       <p><%= task.content %></p>
       <%= link_to "", task_path(task), class: "task-link"%>
+      <div class="controls">
+        <div class="controls-item">
+          <%= simple_form_for task do |f| %>
+          <%= f.input :done, input_html: {value: 'true'}, as: :hidden%>
+          <%= f.submit "mark as done", method: :patch, class: "task-button" %>
+          <% end %>
+        </div>
+        <div class="controls-item"><%= link_to "edit", edit_task_path(task) %></div>
+        <div class="controls-item"><%= link_to "delete", task_path(task), method: :delete, data: {confirm: "Are you sure?"} %></div>
+      </div>
     </div>
     <% end %>
   </div>

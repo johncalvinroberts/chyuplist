@@ -24,10 +24,15 @@
   margin-bottom: 5px;
 }
 
-.task-heading-list{
-  list-style: none;
-  padding-left: 0px;
-  display: inline-block;
+.controls{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  max-width: 237px;
+}
+.controls-item{
+  margin-bottom: 0px;
+  z-index: 99
 }
 .task-heading{
     margin-bottom: 0px;
@@ -43,3 +48,15 @@
   opacity: 0;
 }
 
+.task-icon{
+  color: $brand-color;
+  font-size: 1.1em;
+}
+.task-button{
+  border-radius: 2px;
+  border: 0px;
+}
+.task-button:hover{
+  color: $brand-color;
+
+}

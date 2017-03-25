@@ -16,8 +16,9 @@ class TasksController < ApplicationController
   def create
     task = Task.new(task_params)
     task.user_id = current_user.id
-    task.save!
-    redirect_to task_path(task)
+    task.save
+
+    redirect_to root_path, notice: "successfully added task"
   end
 
   def edit
@@ -25,11 +26,15 @@ class TasksController < ApplicationController
 
   def update
     @task.update(task_params)
+    @task.save
 
+    redirect_to root_path
   end
 
   def destroy
     @task.destroy
+
+    redirect_to root_path, notice: "task deleted"
   end
 
   private
