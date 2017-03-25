@@ -1,10 +1,34 @@
 <div class="container-white">
+
   <% if user_signed_in? %>
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
+  <div class="text-center">
+    <h1>your chyuplist</h1>
+    <% today = DateTime.now %>
+    <p>Today is <%= today.strftime("%A, %B %m, %Y") %></p>
+    <p>Here are your tasks.</p>
+  </div>
+  <div class="tasks">
+    <% current_user.tasks.each do |task| %>
+    <div class="task">
+      <div class="task-item">
+      <ul class="task-heading-list">
+        <li><h3 class="task-heading"><%= task.name %></h3></li>
+        <li><%= link_to "<i class='fa fa-trash-o' aria-hidden='true'></i>".html_safe, task_path(task), method: :delete, class:"icon-delete" %></li>
+        <li><%= link_to "<i class='fa fa-pencil-square-o' aria-hidden='true'></i>".html_safe, task_path(task), method: :delete, class:"icon-edit" %></li>
+        <li><button><%= task.done %></button></li>
+      </ul>
+      </div>
+      <p>Due on: <%= task.duedate.strftime("%A, %B %m, %Y") %> at <%= task.duedate.strftime("%H:%M:%S") %></p>
+      <p>Time remaining: <%= distance_of_time_in_words(Time.now, task.duedate) %> </p>
+      <p><%= task.content %></p>
+      <%= link_to "", task_path(task), class: "task-link"%>
+    </div>
+    <% end %>
+  </div>
   <% else %>
-  <div class="container">
+  <div class="text-center">
       <h1>You're not signed in.</h1>
+      <p>Chyuplist is a simple todo list web app.</p>
       <%= link_to t(".sign_in", default: "login"), new_user_session_path, class: "navbar-wagon-button btn" %>
         <%= link_to "sign up", new_user_registration_path, class: "navbar-wagon-button btn" %>
   </div>

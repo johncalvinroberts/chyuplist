@@ -1,0 +1,6 @@
+<%= simple_form_for @task do |f| %>
+<%= f.input :name %>
+<%= f.input :content %>
+<%= f.input :duedate, as: :date_time_picker %>
+<%= f.submit class: "navbar-wagon-button" %>
+<% end %>

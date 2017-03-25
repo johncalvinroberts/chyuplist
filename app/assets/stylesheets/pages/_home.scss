@@ -2,3 +2,44 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+.tasks{
+}
+.task{
+  border: 1px solid rgba(100,100,100,0.7);
+  border-radius: 2px;
+  padding: 5px 20px;
+  margin: 3px 0px;
+  background-color: $white;
+  position: relative;
+}
+
+.task:hover{
+  box-shadow: 0px 0px 6px rgba(236,231,231, 0.7 );
+  z-index: 2;
+  transition: all 200ms ease-in;
+  transform: scale(1.001);
+}
+.task-item{
+  border-bottom: 2px solid $brand-color;
+  margin-bottom: 5px;
+}
+
+.task-heading-list{
+  list-style: none;
+  padding-left: 0px;
+  display: inline-block;
+}
+.task-heading{
+    margin-bottom: 0px;
+}
+.task-link{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index:2;
+  background: black;
+  opacity: 0;
+}
+
