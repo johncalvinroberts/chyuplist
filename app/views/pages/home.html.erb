@@ -1,2 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container-white">
+  <% if user_signed_in? %>
+  <h1>Pages#home</h1>
+  <p>Find me in app/views/pages/home.html.erb</p>
+  <% else %>
+  <div class="container">
+      <h1>You're not signed in.</h1>
+      <%= link_to t(".sign_in", default: "login"), new_user_session_path, class: "navbar-wagon-button btn" %>
+        <%= link_to "sign up", new_user_registration_path, class: "navbar-wagon-button btn" %>
+  </div>
+  <% end %>
+</div>

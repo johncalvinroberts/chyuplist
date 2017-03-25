@@ -3,12 +3,16 @@
 * ------------------------------------- */
 
 .alert {
-  margin: 0;
+  margin: 0 auto;
   text-align: center;
   color: white;
+  max-width: 200px;
 }
 .alert-info {
-  background: $green;
+  background: rgba(50,183,150, 0.5);
+}
+.alert-info:hover {
+  background: rgba(50,183,150, 1);
 }
 .alert-warning {
   background: $red;
