@@ -24,3 +24,10 @@ $(function(){
 $(function () {
     $('.form_datetime').datetimepicker({ format: 'YYYY-MM-DD HH:mm' });
 });
+
+
+$(document).ready(function () {
+    setInterval(function () {
+        $('.time-rect-container').load('application/give_time');
+    }, 1000);
+});

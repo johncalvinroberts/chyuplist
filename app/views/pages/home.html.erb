@@ -5,6 +5,9 @@
     <h1>your chyuplist</h1>
     <% today = DateTime.now %>
     <p>Today is <%= today.strftime("%A, %B %m, %Y") %></p>
+    <div class="time-rect-container">
+      <%= render :partial => 'shared/time_portion' %>
+    </div>
     <p>Here are your tasks.</p>
   </div>
    <div class="tabs">
